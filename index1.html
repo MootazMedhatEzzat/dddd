@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قطاع الأمن الغذائي - مزرعة التل الكبير</title>
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      text-align: right;
+    }
+    .header {
+      background: #ef6524;
+      color: white;
+      padding: 20px;
+      font-size: 20px;
+      position: relative;
+      text-align: center;
+      min-height: 80px;
+    }
+    .header .top-right {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      text-align: right;
+      font-size: 18px;
+    }
+    .header .logo {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+    }
+    .container {
+      padding: 20px;
+    }
+    .farm-list, .farm-details {
+      padding: 20px;
+    }
+    .farm-item {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    .farm-item:hover {
+      background: #e8f5e9;
+    }
+    #map {
+      width: 100%;
+      height: 300px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .back-button {
+      margin: 10px 0;
+      padding: 10px;
+      background: #ef6524;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .top-right div {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="top-right">
+      <div>جهاز مشروعات الخدمة الوطنية</div>
+      <div>قطــــــــــــــاع الأمن الغذائــــــــــــــي</div>
+      <div>قيــــــــــادة مزرعة التل الكبيـــــــــــر</div>
+    </div>
+    <div>القوات المسلحة المصرية</div>
+  </div>
+  <div class="container">
+    <div class="farm-list" id="farmList">
+      <h2>قائمة المزارع</h2>
+      <div class="farm-item" onclick="showDetails('مزرعة الوادي الأخضر', 'المهندس أحمد علي', 'القمح، الذرة', 30.789, 31.456)">
+        <h3>مزرعة الوادي الأخضر</h3>
+        <p>المالك: المهندس أحمد علي</p>
+      </div>
+      <div class="farm-item" onclick="showDetails('مزرعة شروق الشمس', 'المهندس محمد حسن', 'الطماطم، الخس', 29.987, 30.654)">
+        <h3>مزرعة شروق الشمس</h3>
+        <p>المالك: المهندس محمد حسن</p>
+      </div>
+    </div>
+
+    <div class="farm-details" id="farmDetails" style="display: none;">
+      <button class="back-button" onclick="showFarmList()">العودة إلى القائمة</button>
+      <h2 id="farmName"></h2>
+      <p><strong>المالك:</strong> <span id="farmOwner"></span></p>
+      <p><strong>المحاصيل:</strong> <span id="farmCrops"></span></p>
+      <a href="https://www.google.com/maps" target="_blank">
+        <img id="map" src="images (1).jpg" alt="Farm Location">
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function showDetails(name, owner, crops, lat, lng) {
+      document.getElementById('farmList').style.display = 'none';
+      document.getElementById('farmDetails').style.display = 'block';
+      document.getElementById('farmName').textContent = name;
+      document.getElementById('farmOwner').textContent = owner;
+      document.getElementById('farmCrops').textContent = crops;
+    }
+
+    function showFarmList() {
+      document.getElementById('farmDetails').style.display = 'none';
+      document.getElementById('farmList').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
