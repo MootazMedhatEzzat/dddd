@@ -30,7 +30,7 @@
     }
     .header .top-right .text-container {
       background: white;
-      color: #ef6524; /* Change text color to black for better visibility */
+      color: #ef6524;
       padding: 10px;
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -161,6 +161,54 @@
       bottom: 0;
       width: 100%;
     }
+
+    /* Responsive Design for Small Screens */
+    @media (max-width: 768px) {
+      .header {
+        padding: 10px;
+        min-height: 70px;
+      }
+      .header .logo {
+        width: 80px;
+        height: 70px;
+        top: 5px;
+        left: 10px;
+      }
+      .header .top-right {
+        top: 5px;
+        right: 10px;
+        font-size: 14px;
+      }
+      .header .top-right .text-container {
+        padding: 5px;
+      }
+      .home-page h2 {
+        font-size: 20px;
+      }
+      .home-page .quick-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .home-page .quick-links a {
+        width: 100%;
+        padding: 10px;
+      }
+      .home-page .unit-leaders .leader-grid {
+        grid-template-columns: 1fr;
+      }
+      .home-page .unit-leaders .leader-grid .leader.primary {
+        grid-column: span 1;
+      }
+      .farm-item h3 {
+        font-size: 18px;
+      }
+      .farm-item p {
+        font-size: 14px;
+      }
+      .map-link {
+        height: 200px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -245,9 +293,6 @@
       // Generate Google Maps URL
       var mapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
       document.getElementById('mapLink').href = mapsUrl;
-
-      // Optionally, you can dynamically change the dummy image based on the farm
-      //document.getElementById('mapImage').src = `dummy-map-${name}.jpg`; // Example: dummy-map-مزرعة الوادي الأخضر.jpg
     }
 
     function showFarmList() {
