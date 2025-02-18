@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>قطاع الأمن الغذائي - مزرعة التل الكبير</title>
+  <title>قيادة مزرعة التل الكبير</title>
   <style>
     body {
       font-family: 'Tajawal', sans-serif;
@@ -19,7 +19,7 @@
       font-size: 20px;
       position: relative;
       text-align: center;
-      min-height: 80px;
+      min-height: 90px;
     }
     .header .top-right {
       position: absolute;
@@ -28,18 +28,84 @@
       text-align: right;
       font-size: 18px;
     }
+    .header .top-right .text-container {
+      background: white;
+      color: #ef6524; /* Change text color to black for better visibility */
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-weight: bold;
+    }
     .header .logo {
       position: absolute;
       top: 10px;
       left: 20px;
-      width: 100px;
-      height: 100px;
+      width: 115px;
+      height: 105px;
     }
     .container {
       padding: 20px;
+      padding-bottom: 60px; /* Add padding to the bottom to prevent footer overlap */
     }
-    .farm-list, .farm-details {
+    .home-page, .farm-list, .farm-details {
       padding: 20px;
+    }
+    .home-page h2 {
+      color: #ef6524;
+    }
+    .home-page .quick-links {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .home-page .quick-links a {
+      background: #ef6524;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      text-align: center;
+    }
+    .home-page .quick-links a:hover {
+      background: #d4551d;
+    }
+    .home-page .unit-leaders {
+      margin-top: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .home-page .unit-leaders h3 {
+      color: #ef6524;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .home-page .unit-leaders .leader-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      text-align: center;
+    }
+    .home-page .unit-leaders .leader-grid .leader {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .home-page .unit-leaders .leader-grid .leader.primary {
+      grid-column: span 3;
+      background-color: #e8f5e9;
+    }
+    .home-page .unit-leaders .leader-grid .leader h4 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+    .home-page .unit-leaders .leader-grid .leader p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #666;
     }
     .farm-item {
       background: white;
@@ -70,55 +136,134 @@
     .top-right div {
       line-height: 1.6;
     }
+    .map-link {
+      display: block;
+      width: 100%;
+      height: 300px;
+      border-radius: 8px;
+      margin-top: 10px;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+    }
+    .map-link img {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    footer {
+      background: #ef6524;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
   <div class="header">
     <img src="logo.png" alt="Logo" class="logo">
     <div class="top-right">
-      <div>جهاز مشروعات الخدمة الوطنية</div>
-      <div>قطــــــــــــــاع الأمن الغذائــــــــــــــي</div>
-      <div>قيــــــــــادة مزرعة التل الكبيـــــــــــر</div>
+      <div class="text-container">
+        <div>جهاز مشروعات الخدمة الوطنية</div>
+        <div>قطــــــــــــــاع الأمن الغذائــــــــــــــي</div>
+        <div>قيــــــــــادة مزرعة التل الكبيـــــــــــر</div>
+      </div>
     </div>
-    <div>القوات المسلحة المصرية</div>
   </div>
   <div class="container">
-    <div class="farm-list" id="farmList">
-      <h2>قائمة المزارع</h2>
-      <div class="farm-item" onclick="showDetails('مزرعة الوادي الأخضر', 'المهندس أحمد علي', 'القمح، الذرة', 30.789, 31.456)">
+    <div class="home-page" id="homePage">
+      <h2>مرحبًا بكم في قيادة مزرعة التل الكبير</h2>
+      <p>هذا التطبيق يهدف إلى تسهيل إدارة المزارع المؤجرة التابعة لقيادة مزرعة التل الكبير. يمكنك الاطلاع على قائمة المزارع والتفاصيل الخاصة بكل مزرعة.</p>
+      <div class="quick-links">
+        <a href="#" onclick="showFarmList()">عرض قائمة المزارع</a>
+        <a href="#">الإعلانات الهامة</a>
+        <a href="#">تواصل معنا</a>
+      </div>
+      <div class="unit-leaders">
+        <h3>ضباط الوحدة</h3>
+        <div class="leader-grid">
+          <div class="leader primary">
+            <h4>قائد أول الوحدة</h4>
+            <p>عميد ط.ب/ باسم عبدالرحمن أحمد</p>
+          </div>
+          <div class="leader">
+            <h4>قائد ثاني الوحدة</h4>
+            <p>عقيد/ أحمد محمد عبدالعزيز</p>
+          </div>
+          <div class="leader">
+            <h4>ضابط الأمن</h4>
+            <p>رائد/ بهاء محمد ربيع</p>
+          </div>
+          <div class="leader">
+            <h4>ضابط الأفراد</h4>
+            <p>نقيب/ عصام لطفي عبداللطيف</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="farm-list" id="farmList" style="display: none;">
+      <h2>قائمة المزارع المؤجرة التابعة لقيادة مزرعة التل الكبير</h2>
+      <div class="farm-item" onclick="showDetails('مزرعة الوادي الأخضر', 'المهندس أحمد علي', 'القمح، الذرة', 30.5921, 32.1916)">
         <h3>مزرعة الوادي الأخضر</h3>
-        <p>المالك: المهندس أحمد علي</p>
+        <p>المستأجر: المهندس أحمد علي</p>
       </div>
       <div class="farm-item" onclick="showDetails('مزرعة شروق الشمس', 'المهندس محمد حسن', 'الطماطم، الخس', 29.987, 30.654)">
         <h3>مزرعة شروق الشمس</h3>
-        <p>المالك: المهندس محمد حسن</p>
+        <p>المستأجر: المهندس محمد حسن</p>
       </div>
     </div>
 
     <div class="farm-details" id="farmDetails" style="display: none;">
       <button class="back-button" onclick="showFarmList()">العودة إلى القائمة</button>
       <h2 id="farmName"></h2>
-      <p><strong>المالك:</strong> <span id="farmOwner"></span></p>
-      <p><strong>المحاصيل:</strong> <span id="farmCrops"></span></p>
-      <a href="https://www.google.com/maps" target="_blank">
-        <img id="map" src="images (1).jpg" alt="Farm Location">
+      <p><strong>المستأجر:</strong> <span id="farmOwner"></span></p>
+      <p><strong>المحاصيل المنزرعة:</strong> <span id="farmCrops"></span></p>
+      <a id="mapLink" class="map-link" target="_blank">
+        <img id="mapImage" src="dummy-map.jpg" alt="Map Placeholder">
       </a>
     </div>
   </div>
+
+  <footer>
+    <p>جميع الحقوق محفوظة © 2025 قيادة مزرعة التل الكبير</p>
+  </footer>
 
   <script>
     function showDetails(name, owner, crops, lat, lng) {
       document.getElementById('farmList').style.display = 'none';
       document.getElementById('farmDetails').style.display = 'block';
+      document.getElementById('homePage').style.display = 'none';
       document.getElementById('farmName').textContent = name;
       document.getElementById('farmOwner').textContent = owner;
       document.getElementById('farmCrops').textContent = crops;
+
+      // Generate Google Maps URL
+      var mapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
+      document.getElementById('mapLink').href = mapsUrl;
+
+      // Optionally, you can dynamically change the dummy image based on the farm
+      //document.getElementById('mapImage').src = `dummy-map-${name}.jpg`; // Example: dummy-map-مزرعة الوادي الأخضر.jpg
     }
 
     function showFarmList() {
       document.getElementById('farmDetails').style.display = 'none';
       document.getElementById('farmList').style.display = 'block';
+      document.getElementById('homePage').style.display = 'none';
     }
+
+    function showHomePage() {
+      document.getElementById('farmDetails').style.display = 'none';
+      document.getElementById('farmList').style.display = 'none';
+      document.getElementById('homePage').style.display = 'block';
+    }
+
+    // Show home page by default
+    showHomePage();
   </script>
 </body>
 </html>
