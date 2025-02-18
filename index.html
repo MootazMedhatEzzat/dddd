@@ -35,6 +35,13 @@
       border-radius: 5px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       font-weight: bold;
+      width: 300px; /* Fixed width for the container */
+      text-align: center; /* Center-align text */
+    }
+    .header .top-right .text-container div {
+      white-space: nowrap; /* Prevent text from wrapping */
+      overflow: hidden; /* Hide overflow */
+      text-overflow: ellipsis; /* Add ellipsis if text overflows */
     }
     .header .logo {
       position: absolute;
@@ -181,6 +188,7 @@
       }
       .header .top-right .text-container {
         padding: 5px;
+        width: 200px; /* Adjust width for small screens */
       }
       .home-page h2 {
         font-size: 20px;
